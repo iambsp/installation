@@ -2,7 +2,7 @@
 #TOMCAT9 INSTALLATION
 ########################
 
-sudo nano /etc/systemd/system/tomcat.service
+*********************sudo nano /etc/systemd/system/tomcat.service************
 
 [Unit]
 Description=Tomcat 9 servlet container
@@ -29,7 +29,7 @@ ExecStop=/opt/tomcat/latest/bin/shutdown.sh
 WantedBy=multi-user.target
 
 
-sudo nano /opt/tomcat/latest/conf/tomcat-users.xml
+***********************sudo nano /opt/tomcat/latest/conf/tomcat-users.xml***********
 
 
 <tomcat-users>
@@ -41,9 +41,9 @@ sudo nano /opt/tomcat/latest/conf/tomcat-users.xml
    <user username="admin" password="admin_password" roles="admin-gui,manager-gui"/>
 </tomcat-users>
 
-sudo nano /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+*******sudo nano /opt/tomcat/latest/webapps/manager/META-INF/context.xml
 
-sudo nano /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+**************sudo nano /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
 
 
 <Context antiResourceLocking="false" privileged="true" >
