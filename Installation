@@ -1,0 +1,8 @@
+java -version
+32       sudo apt install default-jre
+33       java -version
+34       sudo apt install default-jdk
+35       javac -version
+36       sudo update-alternatives --config java
+37       sudo nano /etc/environment
+38       source /etc/environm
