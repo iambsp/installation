@@ -1,16 +1,25 @@
 #!/bin/sh
 
-sudo su
+ /$$$$$$$   /$$$$$$  /$$$$$$$ 
+| $$__  $$ /$$__  $$| $$__  $$
+| $$  \ $$| $$  \__/| $$  \ $$
+| $$$$$$$ |  $$$$$$ | $$$$$$$/
+| $$__  $$ \____  $$| $$____/ 
+| $$  \ $$ /$$  \ $$| $$      
+| $$$$$$$/|  $$$$$$/| $$      
+|_______/  \______/ |__/   
+
+
 ########################
 #JAVA INSTALLATION
 ########################
-
+sudo su
 echo `java -version`
 sudo apt install default-jre
 echo `java -version`
 sudo apt install default-jdk
 echo `javac -version`
-sudo update-alternatives --config java #find /usr/lib/jvm/java-1.x.x-openjdk,vim /etc/profile, export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.265.b01-1.amzn2.0.1.x86_64/", export PATH=$JAVA_HOME/bin:$PATH,source /etc/profile
+sudo update-alternatives --config java #find /usr/lib/jvm/java-1.x.x-openjdk $$ /usr/lib/jvm/java-11-openjdk-amd64/bin,vim /etc/profile, export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.265.b01-1.amzn2.0.1.x86_64/", export PATH=$JAVA_HOME/bin:$PATH,source /etc/profile
 sudo nano /etc/environment
 source /etc/environment
 
@@ -31,8 +40,8 @@ sudo ufw enable
 sudo vi /etc/default/jenkins
 sudo vi /var/lib/jenkins/config.xml #Reset Password
 
-devops
-Devops!123
+#devops
+#Devops!123
 
 ########################
 #TOMCAT9 INSTALLATION
@@ -46,8 +55,8 @@ sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
 sudo nano /etc/systemd/system/tomcat.service
 sudo systemctl daemon-reload
 sudo systemctl start tomcat
-sudo systemctl status tomcat
 sudo systemctl enable tomcat
+sudo systemctl status tomcat
 sudo ufw allow 8080/tcp
 sudo nano /opt/tomcat/latest/conf/tomcat-users.xml #   <role rolename="admin-gui"/> #<role rolename="manager-gui"/>#<user username="admin" password="admin_password" roles="admin-gui,manager-gui"/>
 sudo nano /opt/tomcat/latest/webapps/manager/META-INF/context.xml
@@ -108,6 +117,19 @@ sudo nano /etc/profile.d/maven.sh #export JAVA_HOME=/usr/lib/jvm/default-java #e
 sudo chmod +x /etc/profile.d/maven.sh
 source /etc/profile.d/maven.sh
 
+########################
+#DOCKER CE
+########################
+
+sudo apt-get update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+sudo apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+
 
 ########################
 #OTHERS INSTALLATION
@@ -158,11 +180,4 @@ sudo su
 
 
 
- /$$$$$$$   /$$$$$$  /$$$$$$$ 
-| $$__  $$ /$$__  $$| $$__  $$
-| $$  \ $$| $$  \__/| $$  \ $$
-| $$$$$$$ |  $$$$$$ | $$$$$$$/
-| $$__  $$ \____  $$| $$____/ 
-| $$  \ $$ /$$  \ $$| $$      
-| $$$$$$$/|  $$$$$$/| $$      
-|_______/  \______/ |__/    
+ 
